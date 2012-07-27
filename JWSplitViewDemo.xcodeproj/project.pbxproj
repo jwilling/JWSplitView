@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB90E11A15C07CAB00382AEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB90E11915C07CAB00382AEF /* Cocoa.framework */; };
+		AB90E12415C07CAB00382AEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB90E12215C07CAB00382AEF /* InfoPlist.strings */; };
+		AB90E12615C07CAB00382AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90E12515C07CAB00382AEF /* main.m */; };
+		AB90E12A15C07CAB00382AEF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB90E12815C07CAB00382AEF /* Credits.rtf */; };
+		AB90E12D15C07CAB00382AEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90E12C15C07CAB00382AEF /* AppDelegate.m */; };
+		AB90E13015C07CAB00382AEF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB90E12E15C07CAB00382AEF /* MainMenu.xib */; };
+		AB90E13C15C07CE900382AEF /* JWSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90E13B15C07CE900382AEF /* JWSplitView.m */; };
+		AB90E14015C0868A00382AEF /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90E13F15C0868A00382AEF /* ColoredView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AB90E11515C07CAB00382AEF /* JWSplitViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JWSplitViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB90E11915C07CAB00382AEF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AB90E11C15C07CAB00382AEF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AB90E11D15C07CAB00382AEF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AB90E11E15C07CAB00382AEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AB90E12115C07CAB00382AEF /* JWSplitViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JWSplitViewDemo-Info.plist"; sourceTree = "<group>"; };
+		AB90E12315C07CAB00382AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB90E12515C07CAB00382AEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB90E12715C07CAB00382AEF /* JWSplitViewDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWSplitViewDemo-Prefix.pch"; sourceTree = "<group>"; };
+		AB90E12915C07CAB00382AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		AB90E12B15C07CAB00382AEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AB90E12C15C07CAB00382AEF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB90E12F15C07CAB00382AEF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AB90E13A15C07CE900382AEF /* JWSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JWSplitView.h; path = JWSplitView/JWSplitView.h; sourceTree = SOURCE_ROOT; };
+		AB90E13B15C07CE900382AEF /* JWSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JWSplitView.m; path = JWSplitView/JWSplitView.m; sourceTree = SOURCE_ROOT; };
+		AB90E13E15C0868A00382AEF /* ColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredView.h; sourceTree = "<group>"; };
+		AB90E13F15C0868A00382AEF /* ColoredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB90E11215C07CAB00382AEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB90E11A15C07CAB00382AEF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB90E10A15C07CAB00382AEF = {
+			isa = PBXGroup;
+			children = (
+				AB90E11F15C07CAB00382AEF /* JWSplitViewDemo */,
+				AB90E11815C07CAB00382AEF /* Frameworks */,
+				AB90E11615C07CAB00382AEF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB90E11615C07CAB00382AEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB90E11515C07CAB00382AEF /* JWSplitViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB90E11815C07CAB00382AEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB90E11915C07CAB00382AEF /* Cocoa.framework */,
+				AB90E11B15C07CAB00382AEF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB90E11B15C07CAB00382AEF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB90E11C15C07CAB00382AEF /* AppKit.framework */,
+				AB90E11D15C07CAB00382AEF /* CoreData.framework */,
+				AB90E11E15C07CAB00382AEF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AB90E11F15C07CAB00382AEF /* JWSplitViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AB90E12B15C07CAB00382AEF /* AppDelegate.h */,
+				AB90E12C15C07CAB00382AEF /* AppDelegate.m */,
+				AB90E13E15C0868A00382AEF /* ColoredView.h */,
+				AB90E13F15C0868A00382AEF /* ColoredView.m */,
+				AB90E12E15C07CAB00382AEF /* MainMenu.xib */,
+				AB90E13A15C07CE900382AEF /* JWSplitView.h */,
+				AB90E13B15C07CE900382AEF /* JWSplitView.m */,
+				AB90E12015C07CAB00382AEF /* Supporting Files */,
+			);
+			path = JWSplitViewDemo;
+			sourceTree = "<group>";
+		};
+		AB90E12015C07CAB00382AEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB90E12115C07CAB00382AEF /* JWSplitViewDemo-Info.plist */,
+				AB90E12215C07CAB00382AEF /* InfoPlist.strings */,
+				AB90E12515C07CAB00382AEF /* main.m */,
+				AB90E12715C07CAB00382AEF /* JWSplitViewDemo-Prefix.pch */,
+				AB90E12815C07CAB00382AEF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB90E11415C07CAB00382AEF /* JWSplitViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB90E13315C07CAB00382AEF /* Build configuration list for PBXNativeTarget "JWSplitViewDemo" */;
+			buildPhases = (
+				AB90E11115C07CAB00382AEF /* Sources */,
+				AB90E11215C07CAB00382AEF /* Frameworks */,
+				AB90E11315C07CAB00382AEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JWSplitViewDemo;
+			productName = JWSplitViewDemo;
+			productReference = AB90E11515C07CAB00382AEF /* JWSplitViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB90E10C15C07CAB00382AEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Jonathan Willing";
+			};
+			buildConfigurationList = AB90E10F15C07CAB00382AEF /* Build configuration list for PBXProject "JWSplitViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AB90E10A15C07CAB00382AEF;
+			productRefGroup = AB90E11615C07CAB00382AEF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB90E11415C07CAB00382AEF /* JWSplitViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB90E11315C07CAB00382AEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB90E12415C07CAB00382AEF /* InfoPlist.strings in Resources */,
+				AB90E12A15C07CAB00382AEF /* Credits.rtf in Resources */,
+				AB90E13015C07CAB00382AEF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB90E11115C07CAB00382AEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB90E12615C07CAB00382AEF /* main.m in Sources */,
+				AB90E12D15C07CAB00382AEF /* AppDelegate.m in Sources */,
+				AB90E13C15C07CE900382AEF /* JWSplitView.m in Sources */,
+				AB90E14015C0868A00382AEF /* ColoredView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AB90E12215C07CAB00382AEF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB90E12315C07CAB00382AEF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB90E12815C07CAB00382AEF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB90E12915C07CAB00382AEF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		AB90E12E15C07CAB00382AEF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB90E12F15C07CAB00382AEF /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB90E13115C07CAB00382AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AB90E13215C07CAB00382AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AB90E13415C07CAB00382AEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JWSplitViewDemo/JWSplitViewDemo-Prefix.pch";
+				INFOPLIST_FILE = "JWSplitViewDemo/JWSplitViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AB90E13515C07CAB00382AEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JWSplitViewDemo/JWSplitViewDemo-Prefix.pch";
+				INFOPLIST_FILE = "JWSplitViewDemo/JWSplitViewDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB90E10F15C07CAB00382AEF /* Build configuration list for PBXProject "JWSplitViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB90E13115C07CAB00382AEF /* Debug */,
+				AB90E13215C07CAB00382AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB90E13315C07CAB00382AEF /* Build configuration list for PBXNativeTarget "JWSplitViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB90E13415C07CAB00382AEF /* Debug */,
+				AB90E13515C07CAB00382AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB90E10C15C07CAB00382AEF /* Project object */;
+}
