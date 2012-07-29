@@ -290,9 +290,9 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
     
     switch (self.dividerStyle) {
         case JWSplitViewDividerStyleThin: {
-            CGContextSetRGBFillColor(ctx, 0, 0, 0, 0.5);
+            CGContextSetRGBFillColor(ctx, 0.35, 0.35, 0.35, 1);
             CGContextFillRect(ctx, CGRectMake(0, 0, self.frame.size.width / 2, self.frame.size.height));
-            CGContextSetRGBFillColor(ctx, 1, 1, 1, 0.5);
+            CGContextSetRGBFillColor(ctx, 1, 1, 1, 1);
             CGContextFillRect(ctx, CGRectMake(self.frame.size.width / 2, 0, self.frame.size.width / 2, self.frame.size.height));
         }
             break;
