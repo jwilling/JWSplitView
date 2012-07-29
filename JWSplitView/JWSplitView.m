@@ -34,6 +34,7 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
 
 @interface JWDividerView : NSView
 @property (nonatomic, strong) NSTrackingArea *trackingArea;
+@property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
 @property (nonatomic, assign) BOOL horizontal;
 @end
 
@@ -53,12 +54,11 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        
-        //self.backgroundColor = [NSColor grayColor];
         self.splitViews = [NSMutableArray array];
         self.dividers = [NSMutableArray array];
         self.dividerConstraints = [NSMutableArray array];
         self.dividerThickness = 5.f;
+        self.dividerStyle = JWSplitViewDividerStyleThin;
         self.horizontal = YES;
         
         [self addDivider];
@@ -73,14 +73,19 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
     }
 }
 
+- (void)setDividerStyle:(JWSplitViewDividerStyle)dividerStyle {
+    _dividerStyle = dividerStyle;
+    for (JWDividerView *divider in self.dividers) {
+        divider.dividerStyle = dividerStyle;
+        [divider setNeedsDisplay:YES];
+    }
+}
+
 - (void)addSplitView:(NSView *)view {
     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.splitViews addObject:view];
     [self addSubview:view];
     
-    
-    [self removeConstraints:self.constraints];
-
     [self addDivider];
     [self resetLayout];
 }
@@ -89,6 +94,7 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
     JWDividerView *divider = [[JWDividerView alloc] initWithFrame:CGRectZero];
     [divider setTranslatesAutoresizingMaskIntoConstraints:NO];
     divider.horizontal = self.horizontal;
+    divider.dividerStyle = self.dividerStyle;
     [self.dividers addObject:divider];
     [self addSubview:divider];
     
@@ -99,7 +105,13 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
 #pragma mark -
 #pragma mark Constraint setups
 
+- (void)resetAllConstraints {
+    [self removeConstraints:self.constraints];
+}
+
 - (void)resetDividerLayout {
+    [self resetAllConstraints];
+    
     [self.dividerConstraints removeAllObjects];
     
     NSMutableArray *standardConstraints = [NSMutableArray array];
@@ -264,7 +276,6 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
     if (_trackingArea) {
         [self removeTrackingArea:self.trackingArea];
         self.trackingArea = nil;
-        
     }
     
     NSTrackingArea *area = [[NSTrackingArea alloc] initWithRect:[self bounds]
@@ -274,8 +285,21 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    [[NSColor blackColor] set];
-    NSRectFill(dirtyRect);
+    NSGraphicsContext *context = [NSGraphicsContext currentContext];
+    CGContextRef ctx = [context graphicsPort];
+    
+    switch (self.dividerStyle) {
+        case JWSplitViewDividerStyleThin: {
+            CGContextSetRGBFillColor(ctx, 0, 0, 0, 0.5);
+            CGContextFillRect(ctx, CGRectMake(0, 0, self.frame.size.width / 2, self.frame.size.height));
+            CGContextSetRGBFillColor(ctx, 1, 1, 1, 0.5);
+            CGContextFillRect(ctx, CGRectMake(self.frame.size.width / 2, 0, self.frame.size.width / 2, self.frame.size.height));
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

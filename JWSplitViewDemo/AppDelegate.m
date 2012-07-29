@@ -33,6 +33,8 @@
     [splitView setTranslatesAutoresizingMaskIntoConstraints:YES];
     [splitView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
     splitView.horizontal = YES;
+    splitView.dividerStyle = JWSplitViewDividerStyleThin;
+    splitView.dividerThickness = 2.f;
     splitView.autosaveName = @"TestSplitView";
     
     ColoredView *green = [[ColoredView alloc] initWithFrame:CGRectZero color:[NSColor greenColor]];

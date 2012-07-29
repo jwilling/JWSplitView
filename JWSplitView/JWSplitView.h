@@ -37,6 +37,8 @@ typedef NSInteger JWSplitViewDividerStyle;
 
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;
 
+@property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
+
 @property (nonatomic, copy) NSString *autosaveName;
 
 //- (NSLayoutPriority)holdingPriorityForSubviewAtIndex:(NSInteger)subviewIndex;
