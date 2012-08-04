@@ -31,6 +31,7 @@ typedef NSInteger JWSplitViewDividerStyle;
 
 //- (void)setView:(NSView *)view forSplitView:(NSUInteger)splitView;
 - (void)addSplitView:(NSView *)view;
+- (NSView *)splitViewAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readwrite) CGFloat dividerThickness;
 //@property (nonatomic, copy) TUIViewDrawRect dividerDrawRectBlock;

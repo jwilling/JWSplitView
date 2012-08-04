@@ -101,6 +101,10 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
     [self resetDividerLayout];
 }
 
+- (NSView *)splitViewAtIndex:(NSUInteger)index {
+    return self.splitViews[index];
+}
+
 
 #pragma mark -
 #pragma mark Constraint setups
