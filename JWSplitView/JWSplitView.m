@@ -282,10 +282,10 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
         self.trackingArea = nil;
     }
     
-    NSTrackingArea *area = [[NSTrackingArea alloc] initWithRect:[self bounds]
-                                                        options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInActiveApp)
-                                                          owner:self userInfo:nil];
-    [self addTrackingArea:area];
+    self.trackingArea = [[NSTrackingArea alloc] initWithRect:[self bounds]
+                                                     options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInActiveApp)
+                                                       owner:self userInfo:nil];
+    [self addTrackingArea:self.trackingArea];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
