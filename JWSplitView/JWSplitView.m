@@ -22,7 +22,8 @@
 #import "JWSplitView.h"
 #import <objc/runtime.h>
 
-typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, id sender);
+@class JWDividerView;
+typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *divider, id sender);
 
 @interface JWSplitView()
 @property (nonatomic, strong) NSMutableArray *splitViews;
@@ -32,16 +33,16 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
 @property (nonatomic, copy) JWSplitViewDraggingHandler dragHandler;
 @end
 
-@interface JWDividerView : NSView
+@interface JWDividerView()
 @property (nonatomic, strong) NSTrackingArea *trackingArea;
 @property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
 @property (nonatomic, assign) BOOL horizontal;
+@property (nonatomic, assign, readwrite) NSLayoutConstraint *constraint;
 @end
 
 @interface NSView (LayoutExtensions)
 - (void)setPriority:(NSLayoutPriority)priority;
 - (NSLayoutPriority)priorityOrDefault:(NSLayoutPriority)defaultPriority;
-@property (nonatomic, assign) NSLayoutConstraint *constraint;
 @end
 
 @interface NSObject (DragEvents)
@@ -103,6 +104,10 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
 
 - (NSView *)splitViewAtIndex:(NSUInteger)index {
     return self.splitViews[index];
+}
+
+- (JWDividerView *)dividerAtSplitViewIndex:(NSUInteger)index {
+    return self.dividers[index + 1];
 }
 
 
@@ -183,13 +188,13 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, NSView *divider, 
     [self addConstraints:constraints];
 }
 
-- (void)mouseDownOnDivider:(NSView *)divider withEvent:(NSEvent *)downEvent {
+- (void)mouseDownOnDivider:(JWDividerView *)divider withEvent:(NSEvent *)downEvent {
     NSPoint mouseDownPoint = [downEvent locationInWindow];
     
     BOOL horizontal = self.horizontal;
     CGFloat originalConstant = divider.constraint.constant;
     
-    self.dragHandler = ^(NSEvent *event, NSView *currentDivider, id sender) {
+    self.dragHandler = ^(NSEvent *event, JWDividerView *currentDivider, id sender) {
         CGPoint mouseCurrentPoint = [event locationInWindow];
         
         CGFloat deltaY = ceil(mouseCurrentPoint.y - mouseDownPoint.y);
@@ -325,14 +330,6 @@ static char NSViewLayoutConstraintKey;
         return defaultPriority;
     }
     return obj.floatValue;
-}
-
-- (void)setConstraint:(NSLayoutConstraint *)constraint {
-    objc_setAssociatedObject(self, &NSViewLayoutConstraintKey, constraint, OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (NSLayoutConstraint *)constraint {
-    return objc_getAssociatedObject(self, &NSViewLayoutConstraintKey);
 }
 
 @end
