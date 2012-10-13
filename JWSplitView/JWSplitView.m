@@ -205,7 +205,7 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
     };
 }
 
-- (void)mouseDraggedOnDivider:(NSView *)divider withEvent:(NSEvent *)event {
+- (void)mouseDraggedOnDivider:(JWDividerView *)divider withEvent:(NSEvent *)event {
     if (self.dragHandler)
         self.dragHandler(event, divider, self);
 }
