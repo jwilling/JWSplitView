@@ -34,11 +34,8 @@ typedef NSInteger JWSplitViewDividerStyle;
 - (JWDividerView *)dividerAtSplitViewIndex:(NSUInteger)index;
 
 @property (nonatomic, readwrite) CGFloat dividerThickness;
-
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;
-
 @property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
-
 @property (nonatomic, copy) NSString *autosaveName;
 
 @end
