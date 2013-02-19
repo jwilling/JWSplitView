@@ -35,6 +35,7 @@ typedef NSInteger JWSplitViewDividerStyle;
 - (NSView *)splitViewAtIndex:(NSUInteger)index;
 - (JWDividerView *)dividerAtSplitViewIndex:(NSUInteger)index;
 
+@property (nonatomic) NSArray *splitterPositions;
 @property (nonatomic, weak) id <JWSplitViewDelegate> delegate;
 @property (nonatomic, readwrite) CGFloat dividerThickness;
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;

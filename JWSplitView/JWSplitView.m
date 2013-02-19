@@ -263,6 +263,20 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:self.autosaveName];
 }
 
+- (NSArray *)splitterPositions
+{
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSLayoutConstraint *constraint in self.dividerConstraints) [array addObject:@(constraint.constant)];
+    
+    return array;
+}
+
+- (void)setSplitterPositions:(NSArray *)splitterPositions
+{
+    NSInteger limit = splitterPositions.count;
+    for (NSInteger i = 0; i < limit; i++) [self.dividerConstraints[i] setConstant:[splitterPositions[i] doubleValue]];
+}
+
 @end
 
 
