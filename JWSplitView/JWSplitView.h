@@ -27,12 +27,15 @@ enum {
 typedef NSInteger JWSplitViewDividerStyle;
 
 @class JWDividerView;
+@protocol JWSplitViewDelegate;
+
 @interface JWSplitView : NSView
 
 - (void)addSplitView:(NSView *)view;
 - (NSView *)splitViewAtIndex:(NSUInteger)index;
 - (JWDividerView *)dividerAtSplitViewIndex:(NSUInteger)index;
 
+@property (nonatomic, weak) id <JWSplitViewDelegate> delegate;
 @property (nonatomic, readwrite) CGFloat dividerThickness;
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;
 @property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
@@ -43,3 +46,13 @@ typedef NSInteger JWSplitViewDividerStyle;
 @interface JWDividerView : NSView
 @property (nonatomic, assign, readonly) NSLayoutConstraint *constraint;
 @end
+
+@protocol JWSplitViewDelegate <NSObject>
+@optional
+
+- (CGFloat)splitView:(JWSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)index;
+- (CGFloat)splitView:(JWSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)index;
+
+@end
+
+extern NSString * const JWSplitViewDidResizeNotification;
