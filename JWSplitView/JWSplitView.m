@@ -317,7 +317,6 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
 @implementation NSView (LayoutExtensions)
 
 static char NSViewLayoutPriorityKey;
-static char NSViewLayoutConstraintKey;
 
 - (void)setPriority:(NSLayoutPriority)priority {
     NSAssert(priority > NSLayoutPriorityDragThatCanResizeWindow, @"Split view layout priority cannot exceed NSLayoutPriorityDragThatCannotResizeWindow");

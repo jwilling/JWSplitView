@@ -29,22 +29,17 @@ typedef NSInteger JWSplitViewDividerStyle;
 @class JWDividerView;
 @interface JWSplitView : NSView
 
-//- (void)setView:(NSView *)view forSplitView:(NSUInteger)splitView;
 - (void)addSplitView:(NSView *)view;
 - (NSView *)splitViewAtIndex:(NSUInteger)index;
 - (JWDividerView *)dividerAtSplitViewIndex:(NSUInteger)index;
 
 @property (nonatomic, readwrite) CGFloat dividerThickness;
-//@property (nonatomic, copy) TUIViewDrawRect dividerDrawRectBlock;
 
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;
 
 @property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
 
 @property (nonatomic, copy) NSString *autosaveName;
-
-//- (NSLayoutPriority)holdingPriorityForSubviewAtIndex:(NSInteger)subviewIndex;
-//- (void)setHoldingPriority:(NSLayoutPriority)priority forSubviewAtIndex:(NSInteger)subviewIndex;
 
 @end
 
