@@ -15,4 +15,4 @@ The current version of `JWSplitView` is somewhat a proof-of-concept. There are a
 - Implement priority resizing options
 
 ##License
-`JWFolders` is licensed under the [BSD License](http://www.opensource.org/licenses/bsd-license).
+`JWSplitView` is licensed under the [BSD License](http://www.opensource.org/licenses/bsd-license).
