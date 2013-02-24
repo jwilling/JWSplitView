@@ -27,27 +27,33 @@ enum {
 typedef NSInteger JWSplitViewDividerStyle;
 
 @class JWDividerView;
+@protocol JWSplitViewDelegate;
+
 @interface JWSplitView : NSView
 
-//- (void)setView:(NSView *)view forSplitView:(NSUInteger)splitView;
 - (void)addSplitView:(NSView *)view;
 - (NSView *)splitViewAtIndex:(NSUInteger)index;
 - (JWDividerView *)dividerAtSplitViewIndex:(NSUInteger)index;
 
+@property (nonatomic) NSArray *splitterPositions;
+@property (nonatomic, weak) id <JWSplitViewDelegate> delegate;
 @property (nonatomic, readwrite) CGFloat dividerThickness;
-//@property (nonatomic, copy) TUIViewDrawRect dividerDrawRectBlock;
-
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;
-
 @property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
-
 @property (nonatomic, copy) NSString *autosaveName;
-
-//- (NSLayoutPriority)holdingPriorityForSubviewAtIndex:(NSInteger)subviewIndex;
-//- (void)setHoldingPriority:(NSLayoutPriority)priority forSubviewAtIndex:(NSInteger)subviewIndex;
 
 @end
 
 @interface JWDividerView : NSView
 @property (nonatomic, assign, readonly) NSLayoutConstraint *constraint;
 @end
+
+@protocol JWSplitViewDelegate <NSObject>
+@optional
+
+- (CGFloat)splitView:(JWSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)index;
+- (CGFloat)splitView:(JWSplitView *)splitView constrainMaxCoordinate:(CGFloat)proposedMaximumPosition ofSubviewAt:(NSInteger)index;
+
+@end
+
+extern NSString * const JWSplitViewDidResizeNotification;

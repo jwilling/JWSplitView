@@ -22,6 +22,8 @@
 #import "JWSplitView.h"
 #import <objc/runtime.h>
 
+NSString * const JWSplitViewDidResizeNotification = @"JWSplitViewDidResizeNotification";
+
 @class JWDividerView;
 typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *divider, id sender);
 
@@ -194,6 +196,7 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
     BOOL horizontal = self.horizontal;
     CGFloat originalConstant = divider.constraint.constant;
     
+    __block JWSplitView *me = self;
     self.dragHandler = ^(NSEvent *event, JWDividerView *currentDivider, id sender) {
         CGPoint mouseCurrentPoint = [event locationInWindow];
         
@@ -201,7 +204,15 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
         CGFloat deltaX = ceil(mouseDownPoint.x - mouseCurrentPoint.x);
         
         CGFloat newConstant = originalConstant - (horizontal ? deltaX : deltaY);
+        CGFloat minimum = [me.delegate respondsToSelector:@selector(splitView:constrainMinCoordinate:ofSubviewAt:)] ? [me.delegate splitView:me constrainMinCoordinate:newConstant ofSubviewAt:[me.dividers indexOfObject:currentDivider] - 1] : -1;
+        CGFloat maximum = [me.delegate respondsToSelector:@selector(splitView:constrainMinCoordinate:ofSubviewAt:)] ? [me.delegate splitView:me constrainMaxCoordinate:newConstant ofSubviewAt:[me.dividers indexOfObject:currentDivider] - 1] : -1;
+        
         currentDivider.constraint.constant = newConstant;
+        
+        if (maximum != -1 && newConstant > maximum) currentDivider.constraint.constant = maximum;
+        else if (maximum != -1 && newConstant < minimum) currentDivider.constraint.constant = minimum;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:JWSplitViewDidResizeNotification object:me];
     };
 }
 
@@ -250,6 +261,20 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:constants];
     
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:self.autosaveName];
+}
+
+- (NSArray *)splitterPositions
+{
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSLayoutConstraint *constraint in self.dividerConstraints) [array addObject:@(constraint.constant)];
+    
+    return array;
+}
+
+- (void)setSplitterPositions:(NSArray *)splitterPositions
+{
+    NSInteger limit = splitterPositions.count;
+    for (NSInteger i = 0; i < limit; i++) [self.dividerConstraints[i] setConstant:[splitterPositions[i] doubleValue]];
 }
 
 @end
@@ -317,7 +342,6 @@ typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *di
 @implementation NSView (LayoutExtensions)
 
 static char NSViewLayoutPriorityKey;
-static char NSViewLayoutConstraintKey;
 
 - (void)setPriority:(NSLayoutPriority)priority {
     NSAssert(priority > NSLayoutPriorityDragThatCanResizeWindow, @"Split view layout priority cannot exceed NSLayoutPriorityDragThatCannotResizeWindow");
