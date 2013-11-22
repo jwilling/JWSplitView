@@ -29,6 +29,8 @@ typedef NSInteger JWSplitViewDividerStyle;
 @class JWDividerView;
 @interface JWSplitView : NSView
 
+typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *divider, id sender);
+
 //- (void)setView:(NSView *)view forSplitView:(NSUInteger)splitView;
 - (void)addSplitView:(NSView *)view;
 - (NSView *)splitViewAtIndex:(NSUInteger)index;
@@ -42,6 +44,9 @@ typedef NSInteger JWSplitViewDividerStyle;
 @property (nonatomic, assign) JWSplitViewDividerStyle dividerStyle;
 
 @property (nonatomic, copy) NSString *autosaveName;
+
+@property (nonatomic, strong) NSMutableArray *dividers;
+@property (nonatomic, copy) JWSplitViewDraggingHandler dragHandler;
 
 //- (NSLayoutPriority)holdingPriorityForSubviewAtIndex:(NSInteger)subviewIndex;
 //- (void)setHoldingPriority:(NSLayoutPriority)priority forSubviewAtIndex:(NSInteger)subviewIndex;
