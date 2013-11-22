@@ -23,14 +23,11 @@
 #import <objc/runtime.h>
 
 @class JWDividerView;
-typedef void (^JWSplitViewDraggingHandler)(NSEvent *dragEvent, JWDividerView *divider, id sender);
 
 @interface JWSplitView()
 @property (nonatomic, strong) NSMutableArray *splitViews;
-@property (nonatomic, strong) NSMutableArray *dividers;
 @property (nonatomic, strong) NSMutableArray *dividerConstraints;
 @property (nonatomic, strong) NSArray *restoredConstants;
-@property (nonatomic, copy) JWSplitViewDraggingHandler dragHandler;
 @end
 
 @interface JWDividerView()
