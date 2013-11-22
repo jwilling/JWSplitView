@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23ADE67F183F7C6100D95EAD /* LMSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ADE67E183F7C6100D95EAD /* LMSplitView.m */; };
 		AB90E11A15C07CAB00382AEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB90E11915C07CAB00382AEF /* Cocoa.framework */; };
 		AB90E12415C07CAB00382AEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB90E12215C07CAB00382AEF /* InfoPlist.strings */; };
 		AB90E12615C07CAB00382AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90E12515C07CAB00382AEF /* main.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23ADE67D183F7C6100D95EAD /* LMSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSplitView.h; sourceTree = "<group>"; };
+		23ADE67E183F7C6100D95EAD /* LMSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSplitView.m; sourceTree = "<group>"; };
 		AB90E11515C07CAB00382AEF /* JWSplitViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JWSplitViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB90E11915C07CAB00382AEF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AB90E11C15C07CAB00382AEF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -96,6 +99,8 @@
 				AB90E13A15C07CE900382AEF /* JWSplitView.h */,
 				AB90E13B15C07CE900382AEF /* JWSplitView.m */,
 				AB90E12015C07CAB00382AEF /* Supporting Files */,
+				23ADE67D183F7C6100D95EAD /* LMSplitView.h */,
+				23ADE67E183F7C6100D95EAD /* LMSplitView.m */,
 			);
 			path = JWSplitViewDemo;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				AB90E12D15C07CAB00382AEF /* AppDelegate.m in Sources */,
 				AB90E13C15C07CE900382AEF /* JWSplitView.m in Sources */,
 				AB90E14015C0868A00382AEF /* ColoredView.m in Sources */,
+				23ADE67F183F7C6100D95EAD /* LMSplitView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
